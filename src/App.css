@@ -1,0 +1,628 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  color: #1a202c; 
+  padding: 20px;
+}
+
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 30px;
+  text-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
+  letter-spacing: -0.5px;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.left-panel, .right-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #1a202c;
+}
+
+.left-panel:hover, .right-panel:hover {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #e2e8f0;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+.card-form {
+  margin-bottom: 25px;
+}
+
+.card-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #2d3748;
+  letter-spacing: 0.3px;
+}
+
+input[type="text"] {
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: white;
+  color: #1a202c; 
+  font-weight: 500;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+  background: white;
+}
+
+input[type="text"]::placeholder {
+  color: #a0aec0;
+  font-weight: 400;
+}
+
+/* ===== Кнопки ===== */
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: white;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button[type="submit"], .primary-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+button[type="submit"]:hover, .primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #fc5c7d 0%, #6a82fb 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(252, 92, 125, 0.3);
+}
+
+.delete-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(252, 92, 125, 0.4);
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
+}
+
+.edit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(240, 147, 251, 0.4);
+}
+
+.shuffle-btn {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  color: #1a202c;
+  box-shadow: 0 4px 15px rgba(252, 182, 159, 0.3);
+}
+
+.shuffle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(252, 182, 159, 0.4);
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(161, 140, 209, 0.3);
+}
+
+.nav-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(161, 140, 209, 0.4);
+}
+
+.nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== Ошибки ===== */
+.error {
+  color: #e53e3e;
+  font-size: 0.9rem;
+  padding: 10px 15px;
+  background: #fff5f5;
+  border-radius: 10px;
+  border-left: 4px solid #e53e3e;
+  margin-top: 10px;
+}
+
+/* ===== Таблица карточек ===== */
+.card-list {
+  overflow-x: auto;
+}
+
+.card-list table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 15px;
+}
+
+.card-list th {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #2d3748;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.card-list td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: middle;
+  color: #1a202c;
+}
+
+.card-list tr {
+  transition: background 0.2s ease;
+}
+
+.card-list tr:hover {
+  background: #f7fafc;
+}
+
+.card-list tr.learned {
+  background: #f0fff4;
+}
+
+.card-list tr.learned td {
+  color: #38a169;
+}
+
+/* ===== Чекбокс "выучена" ===== */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #1a202c;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #667eea;
+  cursor: pointer;
+}
+
+/* ===== Действия с карточками ===== */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 8px;
+}
+
+/* ===== Пустые состояния ===== */
+.empty-message, .empty-study {
+  text-align: center;
+  padding: 40px 20px;
+  color: #4a5568;
+  font-size: 1.1rem;
+  background: #f7fafc;
+  border-radius: 16px;
+  border: 2px dashed #e2e8f0;
+}
+
+.empty-study {
+  padding: 60px 20px;
+}
+
+/* ===== Режим изучения ===== */
+.study-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.mode-selector {
+  display: flex;
+  gap: 20px;
+  background: #f7fafc;
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.mode-selector label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #2d3748;
+}
+
+.mode-selector input[type="radio"] {
+  accent-color: #667eea;
+  width: 16px;
+  height: 16px;
+}
+
+/* ===== Карточка для изучения ===== */
+.study-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.card-container {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+}
+
+.flashcard {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.flashcard-front {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.flashcard-back {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* ===== Навигация в изучении ===== */
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-btn {
+  padding: 10px 30px;
+  min-width: 120px;
+}
+
+.position-indicator {
+  font-size: 1.1rem;
+  font-weight: 600;
+  min-width: 80px;
+  text-align: center;
+  color: #2d3748;
+  background: #f7fafc;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.flip-hint {
+  color: #a0aec0;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.flip-hint small {
+  display: inline-block;
+  padding: 6px 16px;
+  background: #f7fafc;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+/* ===== Выбор колод ===== */
+.deck-selector {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.deck-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.deck-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.deck-item button {
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  background: #edf2f7;
+  color: #1a202c;
+  transition: all 0.3s ease;
+}
+
+.deck-item button:hover {
+  background: #e2e8f0;
+}
+
+.deck-item button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.deck-item button.active:hover {
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.delete-deck-btn {
+  background: #fc5c7d !important;
+  color: white !important;
+  padding: 4px 10px !important;
+  font-size: 0.8rem !important;
+  border-radius: 8px !important;
+}
+
+.delete-deck-btn:hover {
+  background: #e53e3e !important;
+}
+
+.add-deck-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.add-deck-form input {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: white;
+  color: #1a202c; 
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.add-deck-form input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+  background: white;
+}
+
+.add-deck-form input::placeholder {
+  color: #a0aec0;
+  font-weight: 400;
+}
+
+.add-deck-form button {
+  padding: 10px 24px;
+}
+
+.edit-form-container {
+  background: #f7fafc;
+  padding: 25px;
+  border-radius: 16px;
+  margin: 20px 0;
+  border: 2px solid #667eea;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+}
+
+.edit-form-container h3 {
+  color: #2d3748;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.cancel-btn {
+  background: #a0aec0;
+  color: white;
+  margin-top: 12px;
+}
+
+.cancel-btn:hover {
+  background: #718096;
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .card-container {
+    max-width: 300px;
+    height: 200px;
+  }
+  
+  .flashcard-front, .flashcard-back {
+    padding: 20px;
+    font-size: 1rem;
+  }
+  
+  .deck-list {
+    flex-direction: column;
+  }
+  
+  .add-deck-form {
+    flex-direction: column;
+  }
+  
+  .add-deck-form input {
+    min-width: auto;
+  }
+  
+  .mode-selector {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .study-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navigation {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .nav-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    max-width: 250px;
+    height: 160px;
+  }
+  
+  .flashcard-front, .flashcard-back {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+}
