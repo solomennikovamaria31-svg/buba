@@ -1,0 +1,214 @@
+/* ========== ОБЩИЕ СТИЛИ ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+/* ========== КОНТЕЙНЕР ========== */
+body > div {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== ЗАГОЛОВОК ========== */
+h1 {
+    text-align: center;
+    color: #e74c3c;
+    font-size: 36px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1::before {
+    content: "💪 ";
+}
+
+h1::after {
+    content: " 💪";
+}
+
+/* ========== ПОЛЕ ПОИСКА ========== */
+#seek {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+    outline: none;
+    background: #f9f9f9;
+}
+
+#seek:focus {
+    border-color: #e74c3c;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.1);
+}
+
+#seek::placeholder {
+    color: #999;
+}
+
+/* ========== SENTINEL ========== */
+#sentinel {
+    height: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+/* ========== КОНТЕЙНЕР ШУТОК ========== */
+#containerJoke {
+    margin-bottom: 20px;
+}
+
+/* ========== КАРТОЧКА ШУТКИ ========== */
+.joke-card {
+    background: #f8f9fa;
+    border-left: 4px solid #e74c3c;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.3s ease;
+}
+
+.joke-card:hover {
+    background: #fff5f5;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.15);
+}
+
+.joke-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* ========== КНОПКА ЗАГРУЗКИ ========== */
+#thicken-more {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#thicken-more:hover:not(:disabled) {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
+}
+
+#thicken-more:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+#thicken-more:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ========== СООБЩЕНИЯ ========== */
+.error {
+    background: #ffeaa7;
+    color: #d63031;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.retry {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #d63031;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.retry:hover {
+    background: #b71540;
+}
+
+.end-message {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* ========== АНИМАЦИИ ========== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    body > div {
+        padding: 20px;
+        border-radius: 12px;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+    
+    #seek {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .joke-card {
+        padding: 14px 15px;
+    }
+    
+    .joke-text {
+        font-size: 14px;
+    }
+    
+    #thicken-more {
+        padding: 12px;
+        font-size: 14px;
+    }
+}

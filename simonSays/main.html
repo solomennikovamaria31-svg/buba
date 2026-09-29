@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Says</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1>Simon Says</h1>
+    <div id = 'lose'></div>
+    <div style="display: flex; flex-direction: row; justify-content: center; gap: 20px; flex-wrap: wrap;">
+          <div id="game-info" style="display: flex; gap: 40px; justify-content: center; margin: 20px 0;">
+        <div id="round-display" style="color: white; font-size: 2rem; font-weight: bold;">
+            Уровень: 1
+        </div>
+        <div id="best-display" style="color: #ffd700; font-size: 2rem; font-weight: bold;">
+             Рекорд: 0
+        </div>
+    </div>
+
+        <div id = 'btn'>
+         <button id="do"></button>
+         <button id="re"></button>
+         <button id="mi"></button>
+         <button id="fa"></button>
+         <button id="sol"></button>
+         <button id="la"></button>
+         <button id="si"></button>
+        </div>
+    </div>
+    <button id = 'start'>Start</button>
+     <script src = 'load.js'></script>
+     <script src = 'start.js'></script>
+    <script src = "main.js"></script>
+</body>
+</html>
